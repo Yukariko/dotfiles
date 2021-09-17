@@ -16,10 +16,7 @@ case "$1" in
             exit 0
         }
         git clone https://github.com/ColemakMods/mod-dh.git "$tmpPath"
-        cp -R "$tmpPath/macOS/Colemak DH.bundle" ~/Library/Keyboard\ Layouts/ || {
-            rm -rf "$tmpPath"
-            exit 1
-        }
+        cp -R "$tmpPath/macOS/Colemak DH.bundle" ~/Library/Keyboard\ Layouts/
         rm -rf "$tmpPath"
         read -p "You need to update your keyboard layout in settings. [Enter]" yn
         ;;
