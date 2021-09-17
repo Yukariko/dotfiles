@@ -7,7 +7,7 @@ case "$1" in
         brew install vim
         confpath="$(git rev-parse --show-toplevel)/conf.d"
         if [ -e "$confpath/.vimrc" ]; then
-            ln -s $confpath/.vimrc ~/.vimrc
+            ln -s $confpath/.vimrc ~/.vimrc || true
         fi
         ;;
     clean)
