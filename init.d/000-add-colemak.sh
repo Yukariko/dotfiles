@@ -11,6 +11,10 @@ set -euo pipefail
 
 case "$1" in
     init)
+        [ -d ~/Library/Keyboard\ Layouts/Colemak\ DH.bundle ] && {
+            echo "Colemak aleady installed. Skip."
+            exit 0
+        }
         git clone https://github.com/ColemakMods/mod-dh.git "$tmpPath"
         cp -R "$tmpPath/macOS/Colemak DH.bundle" ~/Library/Keyboard\ Layouts/ || {
             rm -rf "$tmpPath"
