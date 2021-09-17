@@ -11,6 +11,10 @@ install_brew () {
 
 case "$1" in
     init)
+        if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+            [ -d /home/linuxbrew/.linuxbrew/bin ] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        fi
+
         command -v brew &> /dev/null || install_brew
         brew update || true
         brew upgrade
