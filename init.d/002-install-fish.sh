@@ -11,7 +11,8 @@ case "$1" in
         brew install fish
 
         confpath="$(git rev-parse --show-toplevel)/conf.d"
-        for conf in "prompt alias brew"; do
+        for conf in "prompt" "alias" "brew"; do
+            echo $conf
             if [ -e "$confpath/$conf.fish" ]; then
                 ln -s "$confpath/$conf.fish" ~/.config/fish/conf.d/$conf.fish || true
             fi
