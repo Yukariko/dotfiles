@@ -10,7 +10,11 @@ case "$1" in
 
         brew install fish
         # install omf
-        fish -c omf &> /dev/null || curl -L https://get.oh-my.fish | fish
+	if [ -d "$HOME/.local/share/omf" ]; then 
+	    echo "Oh-my-fish is already installed. Skip."
+        exit 0
+	fi
+	fish -c omf &> /dev/null || curl -L https://get.oh-my.fish | fish
         ;;
     clean)
         fish -c omf &> /dev/null && fish -c omf -- destroy
