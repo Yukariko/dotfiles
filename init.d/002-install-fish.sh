@@ -11,13 +11,11 @@ case "$1" in
         brew install fish
 
         confpath="$(git rev-parse --show-toplevel)/conf.d"
-        if [ -e "$confpath/prompt.fish" ]; then
-            ln -s "$confpath/prompt.fish" ~/.config/fish/conf.d/prompt.fish || true
-        fi
-
-        if [ -e "$confpath/alias.fish" ]; then
-            ln -s "$confpath/alias.fish" ~/.config/fish/conf.d/alias.fish || true
-        fi
+        for conf in "prompt alias brew"; do
+            if [ -e "$confpath/$conf.fish" ]; then
+                ln -s "$confpath/$conf.fish" ~/.config/fish/conf.d/$conf.fish || true
+            fi
+        done
 
         # install omf
         if [ -d "$HOME/.local/share/omf" ]; then
