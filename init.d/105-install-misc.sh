@@ -2,7 +2,11 @@
 
 case "$1" in
     init)
-        brew install bottom
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            brew install bottom
+        else
+            brew install ClementTsang/bottom/bottom
+        fi
         brew install lsd
         ;;
     clean)
