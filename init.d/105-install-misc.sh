@@ -2,11 +2,11 @@
 
 case "$1" in
     init)
-        brew install btm
+        brew install bottom
         brew install lsd
         ;;
     clean)
-        brew uninstall btm
+        brew uninstall bottom
         brew uninstall lsd
         ;;
 esac
