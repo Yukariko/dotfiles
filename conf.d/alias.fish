@@ -43,5 +43,6 @@ function df
 end
 
 function btm
-    /usr/bin/btm --color=nord $argv
+    set path (which btm)
+    $path --color=nord $argv
 end
