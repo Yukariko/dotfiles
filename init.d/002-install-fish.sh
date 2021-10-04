@@ -10,6 +10,13 @@ case "$1" in
 
         brew install fish
 
+        # install omf
+        if [ -d "$HOME/.local/share/omf" ]; then
+            echo "Oh-my-fish is already installed. Skip."
+            exit 0
+        fi
+        fish -c omf &> /dev/null || curl -L https://get.oh-my.fish | fish
+
         confpath="$(git rev-parse --show-toplevel)/conf.d"
         for conf in "prompt" "alias" "brew"; do
             echo $conf
@@ -18,12 +25,7 @@ case "$1" in
             fi
         done
 
-        # install omf
-        if [ -d "$HOME/.local/share/omf" ]; then
-            echo "Oh-my-fish is already installed. Skip."
-            exit 0
-        fi
-        fish -c omf &> /dev/null || curl -L https://get.oh-my.fish | fish
+
         ;;
     clean)
         fish -c omf &> /dev/null && fish -c omf -- destroy
