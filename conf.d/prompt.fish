@@ -1,6 +1,9 @@
 # You can override some default options with config.fish:
 #
 #  set -g theme_short_path yes
+set -gx COLORTERM truecolor
+set -gx fish_color_command white
+set -gx fish_color_param blue
 
 function fish_prompt
   set -l last_command_status $status
@@ -19,7 +22,7 @@ function fish_prompt
   set -l dirty    "⨯"
   set -l none     "◦"
 
-  set -l normal_color     (set_color normal)
+  set -l normal_color     (set_color white)
   set -l success_color    (set_color green; or set_color green)
   set -l error_color      (set_color red; or set_color red --bold)
   set -l directory_color  (set_color brown)
@@ -52,4 +55,3 @@ function fish_prompt
 
   echo -n -s " "
 end
-set -gx COLORTERM truecolor
