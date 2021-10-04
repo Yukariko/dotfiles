@@ -6,6 +6,9 @@ set -gx fish_color_command white
 set -gx fish_color_param blue
 set -gx fish_color_comment ffd8a8
 set -gx fish_color_quote ffd8a8
+set -gx fish_color_operator 51cf66
+set -gx fish_color_redirection ffc9c9
+set -gx fish_color_end ffa94d
 
 function fish_prompt
   set -l last_command_status $status
