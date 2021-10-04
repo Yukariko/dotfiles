@@ -3,15 +3,11 @@ function agi
 end
 
 function l
-    lsd -a $argv
-end
-
-function lsl
-    lsd -al $argv
+    lsd -a $argv --icon=never
 end
 
 function ls
-    lsd $argv
+    lsd $argv --icon=never
 end
 
 function ps
@@ -20,10 +16,6 @@ end
 
 function ncore
     cat /proc/cpuinfo | grep -c "processor" $argv
-end
-
-function buildcpp
-    g++ -o (string split "." -- $argv[1])[1] $argv[1] -std=c++11 -O2 -Wall
 end
 
 function mmv
@@ -36,10 +28,6 @@ end
 
 function akill
     sudo kill -9 (ps -ef | grep "$argv" | awk "{print \$2}")
-end
-
-function df
-    duf $argv
 end
 
 function btm
