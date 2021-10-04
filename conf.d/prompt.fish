@@ -4,6 +4,8 @@
 set -gx COLORTERM truecolor
 set -gx fish_color_command white
 set -gx fish_color_param blue
+set -gx fish_color_comment ffd8a8
+set -gx fish_color_quote ffd8a8
 
 function fish_prompt
   set -l last_command_status $status
