@@ -7,11 +7,13 @@ case "$1" in
         else
             brew install ClementTsang/bottom/bottom
         fi
+        brew install bat
         brew install ripgrep
         brew install fzf
         brew install lsd
         ;;
     clean)
+        brew uninstall bat
         brew uninstall bottom
         brew uninstall lsd
         brew uninstall ripgrep
