@@ -1,13 +1,19 @@
+" Use a blinking upright bar cursor in Insert mode, a blinking block in normal
+if &term == 'xterm-256color' || &term == 'screen-256color'
+    let &t_SI = "\<Esc>[4 q"
+    let &t_EI = "\<Esc>[4 q"
+endif
+
 set nocompatible | filetype indent plugin on | syn on
 "if empty($STY) && get(g:, 'colors_name', 'default') !=# 'default'
   " See https://gist.github.com/XVilka/8346728.
   if $COLORTERM =~# 'truecolor' || $COLORTERM =~# '24bit'
     if has('termguicolors')
       " :help xterm-true-color
-      "if $TERM =~# '^screen'
+      if $TERM =~# '^screen'
         let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
         let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-      "endif
+      endif
       set termguicolors
     endif
   endif
@@ -96,7 +102,7 @@ set laststatus=2
 set scrolloff=3  " 커서의 위아래로 항상 세줄의 여유가 있게끔.
 set completeopt=menu,menuone,longest " do not show preview window on omnicompletion
 set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc
-set shell=/bin/bash     " use bash for shell commands
+set shell=$SHELL     " use bash for shell commands
 set autowriteall        " Automatically save before commands like :next and :make
 set hidden              " enable multiple modified buffers
 set history=1000
