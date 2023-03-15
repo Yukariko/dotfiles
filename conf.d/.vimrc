@@ -64,6 +64,7 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'tpope/vim-obsession' " obsession.vim: continuously updated session files
 Plug 'dense-analysis/ale' " clang-tidy
 Plug 'dag/vim-fish'
+Plug 'kamykn/spelunker.vim'
 " Theme
 Plug 'dracula/vim'
 Plug 'Yukariko/my_colorscheme'
@@ -244,3 +245,21 @@ if !isdirectory(s:vimfiles . '/swap')
 endif
 " List of directory names for the swap file, separated with commas
 execute 'set directory^=' . s:vimfiles . '/swap//'
+
+" Zoom and restore window
+function! s:ZoomToggle()
+  if exists('t:zoom_winrestcmd')
+    execute t:zoom_winrestcmd
+    if t:zoom_winrestcmd !=# winrestcmd()
+      wincmd =
+    endif
+    unlet t:zoom_winrestcmd
+  elseif tabpagewinnr(tabpagenr(), '$') > 1
+    " Resize only when multiple windows are in the current tab page
+    let t:zoom_winrestcmd = winrestcmd()
+    resize
+    vertical resize
+  endif
+endfunction
+nnoremap <silent> <Leader>z :<C-U>call <SID>ZoomToggle()<CR>
+
