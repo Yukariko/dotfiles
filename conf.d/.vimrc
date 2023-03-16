@@ -64,7 +64,7 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'tpope/vim-obsession' " obsession.vim: continuously updated session files
 Plug 'dense-analysis/ale' " clang-tidy
 Plug 'dag/vim-fish'
-Plug 'kamykn/spelunker.vim'
+" Plug 'kamykn/spelunker.vim'
 " Theme
 Plug 'dracula/vim'
 Plug 'Yukariko/my_colorscheme'
