@@ -7,6 +7,7 @@ case "$1" in
         if [[ "$OSTYPE" == "linux-gnu"* ]]; then
             eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
         fi
+        brew install locale
         brew install gcc
         gccpath=$(command -v gcc-11)
         gpppath=$(command -v g++-11)
@@ -17,5 +18,6 @@ case "$1" in
         rm -rf $(command -v gcc)
         rm -rf $(command -v g++)
         brew uninstall gcc
+        brew uninstall locale
         ;;
 esac

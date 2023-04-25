@@ -64,11 +64,15 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'tpope/vim-obsession' " obsession.vim: continuously updated session files
 Plug 'dense-analysis/ale' " clang-tidy
 Plug 'dag/vim-fish'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 " Plug 'kamykn/spelunker.vim'
 " Theme
 Plug 'dracula/vim'
 Plug 'Yukariko/my_colorscheme'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'jnurmine/Zenburn'
 call plug#end()
 
 nnoremap ; :
@@ -112,7 +116,7 @@ set exrc
 set updatetime=100
 
 colorscheme vim-monokai-tasty
-"set bg=dark " background를 dark로 설정한다
+set bg=dark " background를 dark로 설정한다
 
 hi Normal guibg=NONE ctermbg=NONE
 command! W w " :W로 저장
