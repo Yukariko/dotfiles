@@ -38,3 +38,47 @@ end
 function ncore
     cat /proc/cpuinfo | grep -c "processor" $argv
 end
+
+function gs
+    git status $argv
+end
+
+function gsw
+    git switch $argv
+end
+
+function gb
+    git branch $argv
+end
+
+function gc
+    git commit $argv
+end
+
+function gp
+    git push $argv
+end
+
+function gpl
+    git pull $argv
+end
+
+function ga
+    git add $argv
+end
+
+function gap
+    git add -p $argv
+end
+
+function gd
+    git diff $argv
+end
+
+function gl
+    git log $argv
+end
+
+function gcl
+    git clone $argv
+end
