@@ -84,7 +84,7 @@ set autoindent
 set tabstop=8
 set softtabstop=-1 " insert 모드에서 탭 누를때 들어가는 간격
 set shiftwidth=4 " tab 관련 설정
-set noexpandtab
+set expandtab
 set number " show line number
 set nobackup "do not make backup files
 set title " windows title을 현재 편집중인 파일이름으로 한다.
