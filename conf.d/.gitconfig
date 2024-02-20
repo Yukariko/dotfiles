@@ -1,0 +1,13 @@
+[core]
+	editor = vim
+	autocrlf = false
+[commit]
+	verbose = true
+[diff]
+	wsErrorHighlight = all
+[user]
+	useConfigOnly = true
+[include]
+	path=~/.gitconfig.work
+[includeIf "gitdir:~/Personal/"]
+	path=~/.gitconfig.user
