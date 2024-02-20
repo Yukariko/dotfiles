@@ -13,19 +13,15 @@ case "$1" in
         # install omf
         if [ -d "$HOME/.local/share/omf" ]; then
             echo "Oh-my-fish is already installed. Skip."
-            exit 0
+        else
+            fish -c omf &> /dev/null || curl -L https://get.oh-my.fish | fish
         fi
-        fish -c omf &> /dev/null || curl -L https://get.oh-my.fish | fish
 
         confpath="$(git rev-parse --show-toplevel)/conf.d"
         for conf in "prompt" "alias" "brew"; do
             echo $conf
-            if [ -e "$confpath/$conf.fish" ]; then
-                ln -s "$confpath/$conf.fish" ~/.config/fish/conf.d/$conf.fish || true
-            fi
+            ln -sF "$confpath/$conf.fish" ~/.config/fish/conf.d/$conf.fish || true
         done
-
-
         ;;
     clean)
         fish -c omf &> /dev/null && fish -c omf -- destroy

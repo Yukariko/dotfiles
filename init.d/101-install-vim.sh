@@ -6,9 +6,7 @@ case "$1" in
     init)
         brew install vim
         confpath="$(git rev-parse --show-toplevel)/conf.d"
-        if [ -e "$confpath/.vimrc" ]; then
-            ln -s "$confpath/.vimrc" ~/.vimrc || true
-        fi
+        ln -sF "$confpath/.vimrc" ~/.vimrc || true
         ;;
     clean)
         brew uninstall vim
