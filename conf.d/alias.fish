@@ -82,3 +82,8 @@ end
 function gcl
     git clone $argv
 end
+
+function gg
+    git log --decorate --graph --all --oneline
+end
+
